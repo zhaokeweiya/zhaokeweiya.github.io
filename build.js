@@ -164,7 +164,7 @@ function writeIndex(posts) {
 ${nav("home", "")}
   <header class="intro">
     <div class="container">
-      <h1>zhaokewei’s blog</h1>
+      <h1>ZHAOKEWEI’S BLOG</h1>
       <span class="subheading">「记录生活的琐碎与热爱」</span>
     </div>
   </header>
