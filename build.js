@@ -38,13 +38,13 @@ function htmlHead(title, desc, prefix) {
 <body>`;
 }
 
-function nav(active, prefix) {
+function nav(active, prefix, brand) {
   const p = (f) => (prefix ? prefix + f : f);
   return `<nav class="nav">
     <div class="nav-inner">
       <a href="${p("index.html")}" class="logo">
         <span class="logo-dot"></span>
-        ${config.siteTitle}
+        ${brand || config.siteTitle}
       </a>
       <button class="nav-toggle" aria-label="打开菜单">
         <span></span><span></span><span></span>
@@ -161,10 +161,10 @@ function writeIndex(posts) {
     .join("\n");
 
   const page = `${htmlHead(config.siteTitle, "记录生活、咖啡、摄影与思考的个人网站")}
-${nav("home", "")}
+${nav("home", "", "front page")}
   <header class="intro">
     <div class="container">
-      <h1>${config.siteTitle}</h1>
+      <h1>zhaokewei’s blog</h1>
       <span class="subheading">「记录生活的琐碎与热爱」</span>
     </div>
   </header>
