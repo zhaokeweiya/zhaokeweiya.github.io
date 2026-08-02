@@ -1,5 +1,6 @@
 module.exports = {
   siteTitle: "zhaokeweiya",
+  logoText: "ZHAOKEWEI’S BLOG",
   siteUrl: "https://zhaokeweiya.github.io",
   categories: [
     { id: "生活", label: "Life", icon: "🌿" },

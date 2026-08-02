@@ -44,7 +44,7 @@ function nav(active, prefix, brand) {
     <div class="nav-inner">
       <a href="${p("index.html")}" class="logo">
         <span class="logo-dot"></span>
-        ${brand || config.siteTitle}
+        ${brand || config.logoText}
       </a>
       <button class="nav-toggle" aria-label="打开菜单">
         <span></span><span></span><span></span>
@@ -161,7 +161,7 @@ function writeIndex(posts) {
     .join("\n");
 
   const page = `${htmlHead(config.siteTitle, "记录生活、咖啡、摄影与思考的个人网站")}
-${nav("home", "", "front page")}
+${nav("home", "")}
   <header class="intro">
     <div class="container">
       <h1>zhaokewei’s blog</h1>
