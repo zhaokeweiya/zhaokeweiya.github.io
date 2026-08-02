@@ -50,7 +50,7 @@ function nav(active, prefix) {
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="${p("index.html")}">Home</a></li>
+        <li><a href="${p("index.html")}" class="${active === "home" ? "active" : ""}">Home</a></li>
         <li><a href="${p("blog.html")}" class="${active === "blog" ? "active" : ""}">Blog</a></li>
         <li><a href="${p("about.html")}">About</a></li>
       </ul>
@@ -137,7 +137,49 @@ ${nav("blog", "")}
 ${footer()}`;
   fs.writeFileSync(path.join(__dirname, "blog.html"), page);
 
+  writeIndex(posts);
+
   console.log("✅ 生成完成，共", posts.length, "篇文章");
+}
+
+function writeIndex(posts) {
+  const recent = posts.slice(0, 3);
+  const previews = recent
+    .map(
+      (p) => `
+        <div class="post-preview">
+          <a href="blog/${p.slug}.html">
+            <h2 class="post-title">${p.title}</h2>
+            <div class="post-content-preview">
+              ${p.excerpt}…
+            </div>
+          </a>
+          <p class="post-meta">Posted by ${config.siteTitle} on ${p.date}</p>
+        </div>
+        <hr>`
+    )
+    .join("\n");
+
+  const page = `${htmlHead(config.siteTitle, "记录生活、咖啡、摄影与思考的个人网站")}
+${nav("home", "")}
+  <header class="intro">
+    <div class="container">
+      <h1>${config.siteTitle}</h1>
+      <span class="subheading">「记录生活的琐碎与热爱」</span>
+    </div>
+  </header>
+  <div class="container">
+    <div class="hux-layout hux-layout--wide">
+      <main class="postlist">
+        ${previews}
+        <ul class="pager">
+          <li class="next"><a href="blog.html">更早的文章 →</a></li>
+        </ul>
+      </main>
+    </div>
+  </div>
+${footer()}`;
+  fs.writeFileSync(path.join(__dirname, "index.html"), page);
 }
 
 function renderArticle(post) {
