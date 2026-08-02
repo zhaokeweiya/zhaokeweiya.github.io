@@ -1,6 +1,12 @@
 # macOS
 .DS_Store
 
+# Node
+node_modules/
+
+# Build output (generated)
+.blog_cache
+
 # Editors
 .vscode/
 .idea/
