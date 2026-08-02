@@ -140,25 +140,33 @@ ${footer()}`;
 }
 
 function renderArticle(post) {
+  const p = (f) => "../" + f;
   return `${htmlHead(post.title, post.excerpt)}
 ${nav("", "../")}
-  <main class="page">
-    <article class="article">
-      <header>
-        <div class="meta">
-          <span>${post.date}</span>
-          <span>·</span>
-          <span>${post.category}</span>
-        </div>
-        <h1>${post.title}</h1>
-      </header>
-      <div class="divider"></div>
-      <div class="article-body">
-${post.html}
+  <header class="intro">
+    <div class="container">
+      <div class="intro-meta">
+        <span>${post.date}</span>
+        <span class="tag">${post.category}</span>
       </div>
-      <p style="margin-top:40px;"><a href="../blog.html" class="btn btn-ghost">← 返回列表</a></p>
-    </article>
-  </main>
+      <h1>${post.title}</h1>
+    </div>
+  </header>
+  <div class="container">
+    <div class="hux-layout hux-layout--wide">
+      <article class="article">
+        <div class="article-poster" style="text-align:center; color:var(--text-dim); margin-bottom:36px;">
+          ${config.siteTitle} · ${post.date}
+        </div>
+        <div class="article-body">
+${post.html}
+        </div>
+        <p style="margin-top:48px;">
+          <a href="../blog.html" class="btn btn-ghost">← 返回列表</a>
+        </p>
+      </article>
+    </div>
+  </div>
 ${footer("../")}`;
 }
 
