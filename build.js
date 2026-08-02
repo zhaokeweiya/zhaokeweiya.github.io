@@ -154,17 +154,21 @@ ${nav("", "../")}
   </header>
   <div class="container">
     <div class="hux-layout hux-layout--wide">
-      <article class="article">
-        <div class="article-poster" style="text-align:center; color:var(--text-dim); margin-bottom:36px;">
-          ${config.siteTitle} · ${post.date}
-        </div>
+      <div class="article-card">
         <div class="article-body">
 ${post.html}
         </div>
-        <p style="margin-top:48px;">
-          <a href="../blog.html" class="btn btn-ghost">← 返回列表</a>
-        </p>
-      </article>
+        <div class="article-foot">
+          <span>${config.siteTitle}</span>
+          <span>·</span>
+          <span>${post.date}</span>
+          <span>·</span>
+          <span>${post.category}</span>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:24px;">
+        <a href="../blog.html" class="btn btn-ghost">← 返回列表</a>
+      </p>
     </div>
   </div>
 ${footer("../")}`;
