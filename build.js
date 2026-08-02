@@ -33,7 +33,7 @@ function htmlHead(title, desc, prefix) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <meta name="description" content="${desc}">
-  <link rel="stylesheet" href="${css}?v=3">
+  <link rel="stylesheet" href="${css}?v=4">
 </head>
 <body>`;
 }

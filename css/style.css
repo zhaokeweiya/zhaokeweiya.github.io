@@ -440,11 +440,10 @@ img {
 
 /* ---------- 文章页 ---------- */
 .article-card {
-  background: var(--card);
+  background: var(--bg-soft);
   border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 40px 44px;
-  backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
   max-width: 760px;
   margin: 0 auto;
@@ -454,18 +453,15 @@ img {
   max-width: 100%;
 }
 
-.article-card h1 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+.article-body h1 {
+  font-size: 1.75rem;
   font-weight: 800;
   line-height: 1.3;
-  margin: 4px 0 24px;
+  margin: 0 0 24px;
   letter-spacing: -0.02em;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--card-border);
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
 }
 
 .article-foot {
