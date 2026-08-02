@@ -182,8 +182,13 @@ ${footer()}`;
   fs.writeFileSync(path.join(__dirname, "index.html"), page);
 }
 
+function fixImages(html) {
+  return html.replace(/src="images\//g, 'src="../images/');
+}
+
 function renderArticle(post) {
   const p = (f) => "../" + f;
+  const html = fixImages(post.html);
   return `${htmlHead(post.title, post.excerpt, "../")}
 ${nav("", "../")}
   <header class="intro">
@@ -199,7 +204,7 @@ ${nav("", "../")}
     <div class="hux-layout hux-layout--wide">
       <div class="article-card">
         <div class="article-body">
-${post.html}
+${html}
         </div>
         <div class="article-foot">
           <span>${config.siteTitle}</span>
